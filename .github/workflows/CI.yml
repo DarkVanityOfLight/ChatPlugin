@@ -1,5 +1,4 @@
 name: Ci
-
 on: push
 
 jobs:
@@ -46,6 +45,15 @@ jobs:
                 fi
                 mkdir -p ./temp/Projects/${{ github.REPOSITORY }}/dev-builds/$VERSION
                 cp -r build/libs/. ./temp/Projects/${{ github.REPOSITORY }}/dev-builds/$VERSION
+                echo "List the artifacts"
+                ls build/libs
+                ls ./temp/Projects
+                echo "List ./temp/Projects/${{ github.REPOSITORY }}"
+                ls ./temp/Projects/${{ github.REPOSITORY }}
+                echo "List dev builds"
+                ls ./temp/Projects/${{ github.REPOSITORY }}/dev-builds/
+                echo "List version"
+                ls ./temp/Projects/${{ github.REPOSITORY }}/dev-builds/$VERSION
             - name: Push the changes
               working-directory: ./temp
               run: |
